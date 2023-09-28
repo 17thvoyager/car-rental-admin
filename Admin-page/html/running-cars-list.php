@@ -470,7 +470,7 @@ include('Database/config.php');
                       </thead>
                       <tbody>
                         <?php
-                          $sql = "SELECT * FROM `tbl_runig-cars` ";
+                          $sql = "SELECT * FROM `car_collection` ";
                           $res = mysqli_query($con, $sql);
                           while( $row = mysqli_fetch_array($res)){
                         ?>
@@ -478,16 +478,16 @@ include('Database/config.php');
                           <td><?php echo $row['car_id'] ?></td>
                           <td><?php echo $row['client_id'] ?></td>
                           <td><?php echo $row['driver_id'] ?></td>
-                          <td><?php echo $row['client_no'] ?></td>
+                          <td><?php echo $row['client_phno'] ?></td>
                           <td><?php echo $row['kilometer'] ?></td>
                           <td><?php echo $row['rented_date'] ?></td>
-                          <td><?php echo $row['details'] ?></td>
+                          <td><?php echo $row['car_details'] ?></td>
                           <td>
                           <div class="container">
                             <div class="row">
                               <div class="col">
                                 <div class="d-flex justify-content-between">
-                                  <a href="Database/delete-runig.php?id=<?php echo $row['id']; ?>" class="btn btn-danger ">Delete</a>
+                                  <a href="Database/delete-runig.php?id=<?php echo $row['car_id']; ?>" class="btn btn-danger ">Delete</a>
                                   <a class="btn btn-primary">Edit</a>
                                 </div>
                               </div>

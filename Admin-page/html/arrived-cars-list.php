@@ -472,30 +472,30 @@ include('Database/config.php');
                       </thead>
                       <tbody>
                         <?php
-                          $sql = "SELECT * FROM `tbl_arr-car` ";
+                          $sql = "SELECT * FROM `car_collection` ";
                           $res = mysqli_query($con, $sql);
                           while( $row = mysqli_fetch_array($res)){
                         ?>
                         <tr>
                           <td><?php echo $row['car_id'] ?></td>
-                          <td><?php echo $row['arr_date'] ?></td>
+                          <td><?php echo $row['arrived_date'] ?></td>
                           <td><?php echo $row['last_service_date'] ?></td>
                           <td><?php echo $row['driver_id'] ?></td>
                           <td><?php echo $row['kilometer'] ?></td>
-                          <td><?php echo $row['contact_no'] ?></td>
-                          <td><?php echo $row['contact_email'] ?></td>
-                          <td><?php echo $row['details'] ?></td>
+                          <td><?php echo $row['client_phno'] ?></td>
+                          <td><?php echo $row['client_email'] ?></td>
+                          <td><?php echo $row['car_details'] ?></td>
                           <td><?php echo $row['invigilator_name'] ?></td>
                           <td>
                           <div class="container">
                             <div class="row">
                               <div class="col">
                                 <div class="d-flex justify-content-between">
-                                  <a href="Database/delete-arr.php?id=<?php echo $row['id']; ?>" class="btn btn-danger ">Delete</a>
+                                  <a href="Database/delete-arr.php?id=<?php echo $row['car_id']; ?>" class="btn btn-danger ">Delete</a>
                                   <a class="btn btn-primary">Edit</a>
                                 </div>
                               </div>
-                            </div>
+                            </div>    
                           </div>
                           </td>
                         </tr>
