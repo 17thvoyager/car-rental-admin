@@ -472,6 +472,7 @@ include('Database/config.php');
                         <?php
                           $sql = "SELECT * FROM `car_collection` ";
                           $res = mysqli_query($con, $sql);
+                          
                           while( $row = mysqli_fetch_array($res)){
                         ?>
                         <tr>
@@ -487,7 +488,7 @@ include('Database/config.php');
                             <div class="row">
                               <div class="col">
                                 <div class="d-flex justify-content-between">
-                                  <a href="Database/delete-runig.php?id=<?php echo $row['car_id']; ?>" class="btn btn-danger ">Delete</a>
+                                  <a href="Database/delete-runig.php?car_id=<?php echo $row['car_id']; ?>" class="btn btn-danger ">Delete</a>
                                   <a class="btn btn-primary">Edit</a>
                                 </div>
                               </div>

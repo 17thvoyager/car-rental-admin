@@ -115,12 +115,11 @@ include('DataBase/user-config.php');
                         $carModel = $row['car_model'];
                         $leasePrice = $row['lease_price'];
                         $carImage = $row['car_image'];
-
                         ?>
                         <div class="col-lg-4 col-md-4">
                             <div class="trainer-item">
                                 <div class="image-thumb">
-                                    <img src="<?php echo $carImage; ?>" alt="">
+                                    <img src="assets/images/<?php echo $carImage; ?>" alt="Car Image">
                                 </div>
                                 <div class="down-content">
                                     <span>from <sup>$</sup>
