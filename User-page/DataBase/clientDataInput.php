@@ -12,7 +12,7 @@ if(isset($_POST['submit'])) {
     VALUES ('$client_name','$client_phno','$client_email','$client_password','$client_photo')";
 
     if( mysqli_query($con, $sql)) {
-        header ("location:../fleet.php");
+        header ("location:../index.php");
     }
     else{
         echo "failed";

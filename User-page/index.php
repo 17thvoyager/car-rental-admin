@@ -90,7 +90,7 @@
             background-color: #5a5a5a;
         }
         
-        #login-form {
+        #sign-form {
             display: none;
 
         }
@@ -116,42 +116,9 @@
     
     
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">car <em> zo</em></a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="index.php" class="active">Home</a></li>
-                            <li><a href="fleet.php">Fleet</a></li>
-                            <li><a href="offers.html">Offers</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-                              
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="about.html">About Us</a>
-                                    <a class="dropdown-item" href="blog.html">Blog</a>
-                                    <a class="dropdown-item" href="team.html">Team</a>
-                                    <a class="dropdown-item" href="testimonials.html">Testimonials</a>
-                                    <a class="dropdown-item" href="faq.html">FAQ</a>
-                                    <a class="dropdown-item" href="terms.html">Terms</a>
-                                </div>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li> 
-                        </ul>        
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php
+    include("header.php");
+    ?>
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
@@ -201,7 +168,7 @@
                 <div class="btn-container">
                     <button name="submit" class="btn btn-submit" style="display: block; margin: 0 auto;">Submit</button>
                 </div>
-                <a class="text-light" id="login_button" onclick="showLogin()" href="#login">already a member? Login</a>
+                <a class="text-light" id="login_button" onclick="showLogin()" href="#login-form">already a member? Login</a>
             </form>
         </div>
     </div>
@@ -213,10 +180,10 @@
             <h2>Login</h2>
             <form action="DataBase/logAction.php" method="POST">
                 <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Email address" required name="email">
+                    <input type="email" class="form-control" placeholder="Email address" required name="login_email">
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Password" required name="password" id="password">
+                    <input type="password" class="form-control" placeholder="Password" required name="login_password" id="password">
                 </div>
                 <div class="btn-container">
                     <button name="submit" class="btn btn-submit" style="display: block; margin: 0 auto;">Submit</button>
@@ -242,16 +209,16 @@
 
         password.onchange = validatePassword;
         confirm_password.onkeyup = validatePassword;
+        
+        function showSignUp() {
+            document.getElementById("sign-form").style.display = "block";
+            document.getElementById("login-form").style.display = "none";
+
+        }
 
         function showLogin() {
             document.getElementById("sign-form").style.display = "none";
             document.getElementById("login-form").style.display = "block";
-
-        }
-
-        function showSignUp() {
-            document.getElementById("sign-form").style.display = "block";
-            document.getElementById("login-form").style.display = "none";
 
         }
     </script>
