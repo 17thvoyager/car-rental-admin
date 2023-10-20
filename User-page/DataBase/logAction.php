@@ -1,25 +1,40 @@
-
 <?php
+ob_start();
 session_start();
 include("user-config.php");
-$client_email=$_POST['login_email'];
-$client_password=$_POST['login_password'];
-if($client_email && $client_password !=""){
-    $sql1="SELECT * FROM `client_collection` WHERE `client_email`='$client_email' AND `client_password`='$client_password'";
-    $res1=mysqli_query($con,$sql1);
-    $row = mysqli_fetch_array($res1);
-    $_SESSION['user_id'] = $row['client_id'];
-    $_SESSION['user_name'] = $row['client_name'];
-    $count1=mysqli_num_rows($res1);
-    echo '<script> console.log("admin portion");</script>';
-    if($count1 > 0){
-        header("location:../fleet.php");
-    }else{
-    // header("location:../index.php#login-form");
-    echo "<script>alert('invalide password or username');window.location = '../index.php#login-form'</script>";
 
-}
-}
-else {echo '<script> console.log("failed");</script>';}
+if(isset($_POST['submit'])) {
+    $client_email = $_POST['login_email'];
+    $client_password = $_POST['login_password'];
 
+    if(!empty($client_email) && !empty($client_password)) {
+        $stmt = $con->prepare("SELECT * FROM `client_collection` WHERE `client_email`='$client_email' AND `client_password`='$client_password'");
+        $stmt->execute();
+        $res1 = $stmt->get_result();
+
+        if($res1->num_rows > 0) {
+            $row = $res1->fetch_assoc();
+            $_SESSION['user_id'] = $row['client_id'];
+            $_SESSION['user_name'] = $row['client_name'];
+            header("location:../fleet.php");
+        } else {
+            $stmt = $con->prepare("SELECT * FROM `admin_collection` WHERE `admin_email`='$client_email' AND `admin_password`='$client_password'");
+            $stmt->execute();
+            $res2 = $stmt->get_result();
+
+            if($res2->num_rows > 0) {
+                $row = $res2->fetch_assoc();
+                $_SESSION['admin_id'] = $row['admin_id'];
+                $_SESSION['admin_name'] = $row['admin_name'];
+                header("location:../../Admin-page/html/index.php");
+            } else {
+                echo '<script> console.log("Invalid login");</script>';
+                echo "<script>alert('Invalid password or username');window.location = '../index.php#login-form'</script>";
+            }
+        }
+    } else {
+        echo '<script> console.log("Empty fields");</script>';
+        echo "<script>alert('Email and password are required');window.location = '../index.php#login-form'</script>";
+    }
+}
 ?>

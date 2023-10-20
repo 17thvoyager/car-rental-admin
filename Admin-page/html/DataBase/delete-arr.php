@@ -1,29 +1,29 @@
 <?php 
 include("config.php");
 
+if(isset($_GET['car_id'])){
 $id = $_GET['car_id'];
 
-$sql = "DELETE FROM `car_collection` WHERE car_id = $id ";
-// echo "<script>console.log('hello' );</script>";
+$sql = "DELETE FROM `car_collection` WHERE `car_id` = '$id' ";
 
     if(mysqli_query($con, $sql)) {
         header ("location: ../arrived-cars-list.php");
     }
     else{
-        header ("location: ../error-403.html");
+        // header ("location: ../error-403.html");
+        echo '<script>window.location="../error-403.html"</script>';
     }
-
+}
 ?>
 
+<!-- comment starts here ................ -->
 
 
-<!--  comment starts here ................
-
-
-<?php 
+<!-- <?php 
 include("config.php");
 
 // Get the car_id parameter from the URL
+if(isset($_GET['delete'])){
 $id = $_GET['car_id'];
 
 // Prepare the SQL query with a parameter
@@ -50,7 +50,8 @@ if ($stmt) {
 
 // Close the database connection
 mysqli_close($con);
+}
 ?> 
 
 
--->
+ -->

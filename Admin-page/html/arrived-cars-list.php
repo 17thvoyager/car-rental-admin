@@ -491,7 +491,7 @@ include('Database/config.php');
                             <div class="row">
                               <div class="col">
                                 <div class="d-flex justify-content-between">
-                                  <a href="Database/delete-arr.php?id=<?php echo $row['car_id']; ?>" class="btn btn-danger ">Delete</a>
+                                  <a href="Database/delete-arr.php?car_id=<?php echo $row['car_id']; ?>" class="btn btn-danger" >Delete</a>
                                   <a class="btn btn-primary">Edit</a>
                                 </div>
                               </div>

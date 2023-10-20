@@ -1,6 +1,7 @@
 <?php
 include('DataBase/user-config.php');
 session_start();
+$current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
 ?>
 <header class="header-area header-sticky">
 <div class="container">
@@ -17,10 +18,12 @@ session_start();
                         if(isset($client_name)){
                     ?>
                     <li><a href="">WELCOME <?php echo $client_name ?></a></li>
-                    <?php } ?>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="fleet.php" class="active">Fleet</a></li>
-                    <li><a href="offers.html">Offers</a></li>
+                    <?php } ?>  
+                    <li ><a href="index.php"<?php if($current_page === 'index')
+                        echo 'class="active"'; ?>>Home</a></li>
+                        
+                    <li><a href="fleet.php"<?php if($current_page ==='fleet') echo 'class="active"'; ?>>Fleet</a></li>
+                    <li><a href="offers.php"<?php if($current_page ==='offers') echo 'class="active"'; ?>>Offers</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">About</a>
@@ -34,7 +37,7 @@ session_start();
                             <a class="dropdown-item" href="terms.html">Terms</a>
                         </div>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
 
                     <?php
                         $client_id = $_SESSION['user_id'];

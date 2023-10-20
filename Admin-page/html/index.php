@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
   <head>
+  <style>
+    .logo {
+      line-height: 80px;
+      color: #fff;
+      font-size: 32px;
+      font-weight: 800;
+      text-transform: uppercase;
+      float: left;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+      margin-left: 30px;
+    }
+
+   .logo em {
+      font-style: normal;
+      color: #ed563b;
+      font-weight: 900;
+    }
+    @media (max-width: 767px) {
+   .logo {
+    color: #1e1e1e;
+    margin-left: 30px;
+  }
+  }  
+
+  </style>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Tell the browser to be responsive to screen width -->
@@ -65,37 +93,14 @@
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <a class="navbar-brand" href="index.html">
-              <!-- Logo icon -->
-              <b class="logo-icon ps-2">
-                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                <!-- Dark Logo icon -->
-                <img
-                  src="../assets/images/logo-icon.png"
-                  alt="homepage"
-                  class="light-logo"
-                  width="25"
-                />
-              </b>
-              <!--End Logo icon -->
-              <!-- Logo text -->
-              <span class="logo-text ms-2">
-                <!-- dark Logo text -->
-                <img
-                  src="../assets/images/logo-text.png"
-                  alt="homepage"
-                  class="light-logo"
-                />
-              </span>
-              <!-- Logo icon -->
-              <!-- <b class="logo-icon"> -->
-              <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-              <!-- Dark Logo icon -->
-              <!-- <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+            <!-- Logo icon -->
 
-              <!-- </b> -->
-              <!--End Logo icon -->
-            </a>
+            <!-- <a class="navbar-brand" href="index.html">
+              <span class="logo-text ms-2">
+              <a href="index.php" class="logo">Car<em> ZO</em></a>
+              </span>
+            </a> -->
+            
             <!-- ============================================================== -->
             <!-- End Logo -->
             <!-- ============================================================== -->
