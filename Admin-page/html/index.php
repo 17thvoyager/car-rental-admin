@@ -89,30 +89,6 @@
       <!-- ============================================================== -->
       <header class="topbar" data-navbarbg="skin5">
         <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-          <div class="navbar-header" data-logobg="skin5">
-            <!-- ============================================================== -->
-            <!-- Logo -->
-            <!-- ============================================================== -->
-            <!-- Logo icon -->
-
-            <!-- <a class="navbar-brand" href="index.html">
-              <span class="logo-text ms-2">
-              <a href="index.php" class="logo">Car<em> ZO</em></a>
-              </span>
-            </a> -->
-            
-            <!-- ============================================================== -->
-            <!-- End Logo -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Toggle which is visible on mobile only -->
-            <!-- ============================================================== -->
-            <a
-              class="nav-toggler waves-effect waves-light d-block d-md-none"
-              href="javascript:void(0)"
-              ><i class="ti-menu ti-close"></i
-            ></a>
-          </div>
           <!-- ============================================================== -->
           <!-- End Logo -->
           <!-- ============================================================== -->
@@ -391,7 +367,7 @@
       </header>
 
       <?php
-        include_once("sideBar.html");
+        include_once("sideBar.php");
       ?>
       <!-- ============================================================== -->
       <!-- End Topbar header -->

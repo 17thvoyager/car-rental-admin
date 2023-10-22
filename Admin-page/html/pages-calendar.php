@@ -394,7 +394,7 @@
       <!-- Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
 <?php
-  include_once("sideBar.html");
+  include_once("sideBar.php");
   ?>
       <!-- ============================================================== -->
       <!-- End Left Sidebar - style you can find in sidebar.scss  -->
