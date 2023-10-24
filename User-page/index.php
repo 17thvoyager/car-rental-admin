@@ -18,82 +18,82 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
-          .form {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+      .form {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
 
-        .form-container {
-            background-color: #ed563b;
-            color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 600px; /* Set your desired width */
-        }
+      .form-container {
+        background-color: #ed563b;
+        color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 600px; /* Set your desired width */
+      }
 
-        .form-control {
-            width: calc(100% - 40px);
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: white;
-            color: #333;
-            font-size: 16px;
-        }
+      .form-control {
+        width: calc(100% - 40px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        color: #333;
+        font-size: 16px;
+      }
 
-        .file-input {
-            display: none;
-        }
+      .file-input {
+        display: none;
+      }
 
-        .custom-file-upload {
-            border: 1px solid #ccc;
-            display: inline-block;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #fff;
-            color: #333;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+      .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: #fff;
+        color: #333;
+        border-radius: 5px;
+        font-size: 16px;
+      }
 
-        .custom-file-upload:hover {
-            background-color: #eee;
-        }
+      .custom-file-upload:hover {
+        background-color: #eee;
+      }
 
-        .btn-container {
-            display: flex;
-            justify-content: space-between;
-        }
+      .btn-container {
+        display: flex;
+        justify-content: space-between;
+      }
 
-        .btn-submit,
-        .btn-signin {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+      .btn-submit,
+      .btn-signin {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
 
-        .btn-submit:hover,
-        .btn-signin:hover {
-            background-color: #5a5a5a;
-        }
-        
-        #sign-form {
-            display: none;
+      .btn-submit:hover,
+      .btn-signin:hover {
+        background-color: #5a5a5a;
+      }
 
-        }
+      #sign-form {
+        display: none;
+      }
+    </style>
 
     </style>
      
@@ -145,25 +145,25 @@
             <h2>Sign Up</h2>
             <form action="DataBase/clientDataInput.php" method="POST">
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Name" required name="name">
+                    <input type="text" class="form-control" placeholder="Name" required name="name"/>
                 </div>
                 <div class="mb-3">
-                    <input type="tel" class="form-control" placeholder="Phone Number" required name="phno">
+                    <input type="tel" class="form-control" placeholder="Phone Number" required name="phno"/>
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Email address" required name="email">
+                    <input type="email" class="form-control" placeholder="Email address" required name="email"/>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Password" required name="password" id="password">
+                    <input type="password" class="form-control" placeholder="Password" required name="password" id="signup_password"/>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Confirm Password" required name="confirm_password" id="confirm_password">
+                    <input type="password" class="form-control" placeholder="Confirm Password" required name="confirm_password" id="confirm_password"/>
                 </div>
                 <div>
                     <label for="file-upload" class="custom-file-upload" >
                         <i class="fa fa-cloud-upload"></i> Upload Driver's License Picture
                     </label>
-                    <input id="file-upload" class="file-input" type="file" accept="image/*" required name="license_photo">
+                    <input id="file-upload" class="file-input" type="file" accept="image/*" required name="license_photo"/>
                 </div>
                 <div class="btn-container">
                     <button name="submit" class="btn btn-submit" style="display: block; margin: 0 auto;">Submit</button>
@@ -180,10 +180,10 @@
             <h2>Login</h2>
             <form action="DataBase/logAction.php" method="POST">
                 <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Email address" required name="login_email">
+                    <input type="email" class="form-control" placeholder="Email address" required name="login_email"/>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Password" required name="login_password" id="password">
+                    <input type="password" class="form-control" placeholder="Password" required name="login_password" id="password"/>
                 </div>
                 <div class="btn-container">
                     <button name="submit" class="btn btn-submit" style="display: block; margin: 0 auto;">Submit</button>
