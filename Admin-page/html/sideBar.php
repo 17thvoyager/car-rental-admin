@@ -6,6 +6,7 @@ $admin_name = $_SESSION['admin_name'];
 ?>
 
 <style>
+
   .logo {
     line-height: 80px;
     color: #fff;
@@ -55,24 +56,16 @@ $admin_name = $_SESSION['admin_name'];
         <li class="sidebar-item">
           <span class="hide-menu"> <a href="index.php" class="logo" style="margin:0px 50px">Car<em> ZO</em></a></span>
         </li>
-      <!-- <?php if (isset($admin_name)) { ?>
+      </li>
+      <?php if(isset($admin_name)) { ?>
         <li class="sidebar-item">
-          <a class="sidebar-link"><i></i><span> Welcome
-              <?php echo $admin_name;
-              echo '<script> console.log("hiii ' . $admin_name . '");</script>'; ?>
+          <a class="sidebar-link"><i></i><span> Welcome <?php echo $admin_name ?>
             </span></a>
         </li>
       <?php } else {
         echo "<script>alert('Invalid password or username');
         window.location = '../../User-page/index.php#login-form'</script>";
-      } ?> -->
-
-        <li class="sidebar-item">
-                  <a class="sidebar-link"><i></i><span> Welcome
-                      <?php echo $_SESSION['admin_name'];
-              echo '<script> console.log("hii' . $admin_name . '");</script>'; ?>
-            </span></a>
-        </li>
+      } ?>
         <li class="sidebar-item">
           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false"><i
               class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
@@ -167,7 +160,13 @@ $admin_name = $_SESSION['admin_name'];
                   class="hide-menu"> Error 500 </span></a>
             </li>
           </ul>
+          <li class="sidebar-item">
+          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../../User-page/DataBase/logOutAction.php"
+            aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Logout as <?php echo $admin_name?></span></a>
         </li>
+
+        </li>
+
       </ul>
     </nav>
     <!-- End Sidebar navigation -->

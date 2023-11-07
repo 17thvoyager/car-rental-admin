@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('Database/config.php');
 ?>
 <!DOCTYPE html>
@@ -411,10 +412,10 @@ include('Database/config.php');
                           <th>Car ID</th>
                           <th>Arrived Date</th>
                           <th>Last Service</th>
-                          <th>Driver ID</th>
+                          <th>Client ID</th>
                           <th>Total Mileage</th>
                           <th>Contact Customer</th>
-                          <th>Contact Email</th>
+                          <th>Driver ID</th>
                           <th>Details</th>
                           <th>Invigilator</th>
                           <th>Edit</th>
@@ -430,10 +431,10 @@ include('Database/config.php');
                           <td><?php echo $row['car_id'] ?></td>
                           <td><?php echo $row['arrived_date'] ?></td>
                           <td><?php echo $row['last_service_date'] ?></td>
-                          <td><?php echo $row['driver_id'] ?></td>
+                          <td><?php echo $row['client_id'] ?></td>
                           <td><?php echo $row['kilometer'] ?></td>
                           <td><?php echo $row['client_phno'] ?></td>
-                          <td><?php echo $row['client_email'] ?></td>
+                          <td><?php echo $row['driver_id'] ?></td>
                           <td><?php echo $row['car_details'] ?></td>
                           <td><?php echo $row['invigilator_name'] ?></td>
                           <td>
@@ -441,25 +442,26 @@ include('Database/config.php');
                             <div class="row">
                               <div class="col">
                                 <div class="d-flex justify-content-between">
-                                  <a href="Database/delete-arr.php?car_id=<?php echo $row['car_id']; ?>" class="btn btn-danger" >Delete</a>
-                                  <a class="btn btn-primary">Edit</a>
-                                </div>
-                              </div>
-                            </div>    
-                          </div>
-                          </td>
-                        </tr>
-                          <?php } ?>
+                                  <a href="Database/delete-arr.php?car_id=<?php echo $row['car_id']; ?>" class="btn btn-danger">Delete</a>
+                                  <a class="btn btn-primary"
+                                      href="arrived-edit.php?car_id=<?php echo $row['car_id']; ?>">Edit</a>
+                                  </div>
+                                  </div>
+                                  </div>
+                                        </div>
+                                  </td>
+                                </tr>
+                          <?php } ?>  
                       </tbody>
                       <tfoot>
                         <tr>
                           <th>Car ID</th>
                           <th>Arrived Date</th>
                           <th>Last Service</th>
-                          <th>Driver ID</th>
+                          <th>Client ID</th>
                           <th>Total Mileage</th>
                           <th>Contact Customer</th>
-                          <th>Contact Email</th>
+                          <th>Driver ID</th>
                           <th>Details</th>
                           <th>Invigilator</th>
                           <th>Edit</th>

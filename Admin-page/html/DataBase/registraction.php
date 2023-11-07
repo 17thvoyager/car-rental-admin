@@ -13,9 +13,8 @@ if(isset($_POST['submit'])) {
     $invigilator = $_POST['invigilator'];
 
 
-$sql = "INSERT INTO `tbl_arr-car`(`car_id`,`arr_date`,`last_service_date`,`driver_id`,`kilometer`,`contact_no`,`contact_email`,`details`,`invigilator_name`) VALUES 
-('$car_id','$arr_date','$service_date','$driver_id','$km','$contact_no','$contact_email','$car_details','$invigilator')";
-
+    $sql = "INSERT INTO `car_collection`(`car_id`, `last_service_date`, `arrived_date`, `car_model`, `lease_price`, `client_id`, `driver_id`, `rented_date`, `kilometer`, `client_phno`, `client_email`, `car_details`, `invigilator_name`, `car_image`) 
+    VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]','[value-11]','[value-12]','[value-13]','[value-14]')";
 
     if( mysqli_query($con, $sql)) {
         header ("location:../index.php");

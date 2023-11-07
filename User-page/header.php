@@ -40,7 +40,7 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
                     <li><a href="contact.php">Contact</a></li>
 
                     <?php
-                        $client_id = $_SESSION['user_id'];
+                        $client_id = $_SESSION['user_name'];
                         if(isset($client_id)){
                     ?>
                     <li><a href="./DataBase/logOutAction.php">Log out</a></li>

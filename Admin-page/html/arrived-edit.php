@@ -1,4 +1,7 @@
-<?php  session_start(); ?>
+    <?php
+ session_start(); 
+ include("./DataBase/config.php");
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
   <head>
@@ -375,7 +378,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title"> Add Current Running Car</h4>
+              <h4 class="page-title"> Add car</h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -402,7 +405,27 @@
           <div class="row">
             <div class="col-xl-12 col-md-10">
               <div class="card">
-                <form class="form-horizontal" action="DataBase/currentaction.php" method="POST">
+
+                <?php 
+                $car_id = $_GET['car_id'];
+                if(isset($car_id)) {
+                    $sql = "SELECT * FROM `car_collection` where `car_id` =  '$car_id' ";
+                    $res = mysqli_query($con, $sql);
+                    $row = mysqli_fetch_array($res);
+
+                    $arrived_date = $row['arrived_date'];
+                    $last_service_date = $row['last_service_date'];
+                    $client_id = $row['client_id'];
+                    $kilometer = $row['kilometer'];
+                    $client_phno = $row['client_phno'];
+                    $driver_id = $row['driver_id'];
+                    $car_details = $row['car_details'];
+                    $invigilator = $row['invigilator_name'];
+                    
+                ?>
+                <script>console.log('<?php echo trim($invigilator); ?>');</script>
+
+                <form class="form-horizontal" action="DataBase/arrived-editaction.php?car-id=<?php echo $row['car_id']; ?> " method="POST" >
                   <div class="card-body ">
                     <h4 class="card-title">Car Inputs</h4>
                     <div class="form-group row">
@@ -417,6 +440,39 @@
                           class="form-control"
                           name="car-id"
                           placeholder="CarID"
+                          value="<?php echo trim($car_id); ?>"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="arrived-date"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Car arrived date</label>
+                      <div class="col-sm-9">
+                        <input
+                          type="date"
+                          class="form-control"
+                          name="arrived-date"
+                          placeholder="Car last service"
+                          value="<?php echo date('Y-m-d', strtotime($arrived_date)); ?>"
+                        />  
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label
+                        for="service-date"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Car last service</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="date"
+                          class="form-control"
+                          name="service-date"
+                          placeholder="Car last service"
+                          value="<?php echo $row['last_service_date']; ?>"
                         />
                       </div>
                     </div>
@@ -424,45 +480,15 @@
                       <label
                         for="client-id"
                         class="col-sm-3 text-end control-label col-form-label"
-                        > Client ID</label
+                        >Last Client ID</label
                       >
                       <div class="col-sm-9">
                         <input
-                          type="number"
-                          class="form-control"
+                          type="text"
+                          class="dirver-control"
                           name="client-id"
                           placeholder="ClientID"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="driver-id"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        > Driver ID</label
-                      >
-                      <div class="col-sm-9">
-                        <input
-                          type="number"
-                          class="form-control"
-                          name="driver-id"
-                          placeholder="ClientID"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="form-group row">
-                      <label
-                        for="client-phno"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Client Phone no: </label
-                      >
-                      <div class="col-sm-9">
-                        <input
-                          type="number"
-                          class="form-control"
-                          name="client-phno"
-                          placeholder="distance in km"
+                          value="<?php echo trim($client_id); ?>"
                         />
                       </div>
                     </div>
@@ -470,49 +496,84 @@
                       <label
                         for="km"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Total milage</label
+                        >km</label
                       >
                       <div class="col-sm-9">
                         <input
-                          type="number"
+                          type="text"
                           class="form-control"
                           name="km"
-                          placeholder="Contact No Here"
+                          placeholder="distance in km"
+                          value="<?php echo trim($kilometer); ?>"
                         />
                       </div>
                     </div>
                     <div class="form-group row">
                       <label
-                        for="rented-date"
+                        for="contact-number"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Rented Date</label
+                        >Contact No</label
                       >
                       <div class="col-sm-9">
                         <input
-                          type="date"
+                          type="number"
                           class="form-control"
-                          name="rented-date"
-                          placeholder="Car last service"
+                          name="contact-number"
+                          placeholder="Contact Number Here"
+                          value="<?php echo trim($client_phno); ?>"
                         />
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label
-                        for="car-details"
+                        for="driver-id"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Car details</label
-                      >
+                        >Last Driver ID</label>
                       <div class="col-sm-9">
-                        <textarea class="form-control" name="car-details"></textarea>
+                        <input
+                          type="text"
+                          class="dirver-control"
+                          name="driver-id"
+                          placeholder=""
+                          value="<?php echo trim($driver_id); ?>"
+                        />
                       </div>
                     </div>
+                  
+                    <div class="form-group row">
+                      <label
+                        for="car-details"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Car insurance and repair details</label
+                      >
+                      <div class="col-sm-9">
+                        <textarea class="form-control"  type="text" name="car-details" ><?php echo trim($car_details);?></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">̀
+                      <label
+                        for="invigilator"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Invigilator Name</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="invigilator"
+                          placeholder="Invigilator Name"
+                          value="<?php echo trim($invigilator); ?>"
+                        />
+                      </div>
+                  </div>
                   <div class="border-top">
                     <div class="card-body">
                       <input type="submit" class="btn btn-primary"  value="submit" name="submit" > 
                     </div>
                   </div>
                 </form>
+                <?php } ?>
               </div>
             </div>
           </div>
@@ -551,6 +612,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
+
 
         <!-- ============================================================== -->
         <!-- End footer -->

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
   <head>
@@ -453,7 +454,7 @@
                       <label
                         for="driver-id"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Last DriverID</label
+                        >Last Client ID</label
                       >
                       <div class="col-sm-9">
                         <input
@@ -499,7 +500,7 @@
                       <label
                         for="contact-email"
                         class="col-sm-3 text-end control-label col-form-label"
-                        >Contact Email</label
+                        >Last Driver ID</label
                       >
                       <div class="col-sm-9">
                         <input
