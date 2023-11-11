@@ -18,7 +18,7 @@ include('Database/config.php');
       content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
     />
     <meta name="robots" content="noindex,nofollow" />
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <title>CarZo-adminPanel</title>
     <!-- Favicon icon -->
     <link
       rel="icon"
@@ -443,7 +443,7 @@ include('Database/config.php');
                               <div class="col">
                                 <div class="d-flex justify-content-between">
                                   <a href="Database/delete-runig.php?car_id=<?php echo $row['car_id']; ?>" class="btn btn-danger ">Delete</a>
-                                  <a class="btn btn-primary">Edit</a>
+                                  <a href="DataBase/running-edit.php?car_id=<?php echo $row['car_id']; ?>" class="btn btn-primary">Edit</a>
                                 </div>
                               </div>
                             </div>

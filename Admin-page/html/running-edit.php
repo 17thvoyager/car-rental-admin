@@ -1,4 +1,4 @@
-    <?php
+<?php
  session_start(); 
  include("./DataBase/config.php");
 ?>
@@ -378,7 +378,7 @@
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title"> Edit arrived carID: <?php echo $_GET['car_id'];?></h4>
+              <h4 class="page-title"> Edit running carID: </h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
