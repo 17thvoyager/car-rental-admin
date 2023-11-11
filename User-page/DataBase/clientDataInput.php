@@ -33,10 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Generate a verification code
             $verificationCode = generateVerificationCode();
 
-            // $insertVerificationCode = "INSERT INTO `client_collection` (`client_email`, `verification_code`) VALUES ('$client_email', '$verificationCode')";
-            // if (!mysqli_query($con, $insertVerificationCode)) {
-            //     throw new Exception("Failed to insert verification code into the database.");
-            // }
+            $insertVerificationCode = "INSERT INTO `client_collection` (`client_email`, `verification_code`) VALUES ('$client_email', '$verificationCode')";
+            if (!mysqli_query($con, $insertVerificationCode)) {
+                throw new Exception("Failed to insert verification code into the database.");
+            }
 
             // Send verification email
             $mail = new PHPMailer(true);
