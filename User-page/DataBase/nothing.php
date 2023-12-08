@@ -1,6 +1,4 @@
-
 <?php
-
 include("user-config.php");
 
 
@@ -14,7 +12,7 @@ require './PHPMailer/src/SMTP.php';
 echo "hellow1";
 function generateVerificationCode() {
     // Generate a random verification code (you can customize the code length)
-    return random_int(100000, 999999);
+    return mt_rand(100000, 999999);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,8 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $client_email = $_POST['email'];
         $client_password = $_POST['confirm_password'];
         $client_photo = $_POST['license_photo'];
-        $subject = "Verification code for the ac in the CarZo";
-        
         echo "hellow";
         // Check if the email already exists
         $email_checking = "SELECT `client_email` FROM `client_collection` WHERE `client_email`= '$client_email' ";
@@ -35,9 +31,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<script> console.log(" hello word");</script>';
             throw new Exception("You already signed up. Please go to the home page and try to login.");
         } else {
-            echo "blah2";
+            echo "blah";
             // Generate a verification code
             $verificationCode = generateVerificationCode();
+
+            $insertVerificationCode = "INSERT INTO `client_collection` (`client_email`, `verification_code`) VALUES ('$client_email', '$verificationCode')";
+            
+            mysqli_query($con, $insertVerificationCode);
+            echo '<script> console.log(" hello word");</script>';
+            echo "blah";
 
             // Send verification email
             $mail = new PHPMailer(true);
@@ -45,34 +47,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Host = 'smtp.gmail.com'; // Your SMTP server details
             $mail->SMTPAuth = true;
             $mail->Username = 'maxpbav@gmail.com'; // Your SMTP username
-            $mail->Password = 'zxkxqjxpxpaplfhq'; // Your SMTP password
+            $mail->Password = 'zxkx qjxp xpap lfhq'; // Your SMTP password
             $mail->SMTPSecure = 'tls'; // Encryption (ssl or tls)
             $mail->Port = 587; // Port number
-            $mail->setFrom($client_email, $client_name);
+            $mail->setFrom('maxpbav@gmail.com', 'CarZo');
             $mail->addAddress($client_email);
-
-
-
-
             $mail->isHTML(true);
-            $mail->Subject = ("$client_email ($subject)");
-            $mail->Body = '<!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Verification Email</title>
-            </head>
-            <body>
-                <div class="container">
-                    <h2>CarZo Car Rental</h2>
-                    <p>Your verification code is: <strong>' . $verificationCode . '</strong></p>
-                    <p>Please enter this code to verify your account in the CarZo car rental app.</p>
-                    <hr>
-                    <p>&copy; ' . date('Y') . ' CarZo Car Rental. All rights reserved.</p>
-                </div>
-            </body>
-            </html>';
+            $mail->Subject = 'Email Verification Code';
+            $mail->Body = 'Your verification code is: ' . $verificationCode;
             // Configure PHPMailer...
 
             // Rest of your email sending code...
@@ -89,6 +71,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('" . $e->getMessage() . "'); window.location = '../index.php#login-form'</script>";
     }
 }
-
 ?>
-

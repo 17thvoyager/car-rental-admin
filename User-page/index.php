@@ -140,61 +140,59 @@
     <!-- ***** Main Banner Area End ***** -->
 
     <div id="sign-form">
-    <div class="form w-100   justify-content-center align-items-center" >
+      <div class="form w-100 justify-content-center align-items-center">
         <div class="form-container">
-            <h2>Sign Up</h2>
-            <form action="DataBase/clientDataInput.php" method="POST">
-                <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Name" required name="name"/>
-                </div>
-                <div class="mb-3">
-                    <input type="tel" class="form-control" placeholder="Phone Number" required name="phno"/>
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Email address" required name="email"/>
-                </div>
-                <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Password" required name="password" id="password"/>
-                </div>
-                <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Confirm Password" required name="confirm_password" id="confirm_password"/>
-                </div>
-                <div>
-                    <label for="file-upload" class="custom-file-upload" >
-                        <i class="fa fa-cloud-upload"></i> Upload Driver's License Picture
-                    </label>
-                    <input id="file-upload" class="file-input" type="file" accept="image/*" required name="license_photo"/>
-                </div>
-                <div class="btn-container">
-                    <button name="submit" class="btn btn-submit" style="display: block; margin: 0 auto;">Submit</button>
-                </div>
-                <a class="text-light" id="login_button" onclick="showLogin()" href="#login-form">already a member? Login</a>
-            </form>
+          <h2>Sign Up</h2>
+          <form action="DataBase/clientDataInput.php" method="POST">
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Name" required name="name"/>
+            </div>
+            <div class="mb-3">
+              <input type="tel" class="form-control" placeholder="Phone Number" required name="phno"/>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email address" required name="email"/>
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" placeholder="Password" required name="password" id="password"/>
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" placeholder="Confirm Password" required name="confirm_password" id="confirm_password"/>
+            </div>
+            <div>
+              <label for="file-upload" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Upload Driver's License Picture
+              </label>
+              <input id="file-upload" class="file-input" type="file" accept="image/*" required name="license_photo"/>
+            </div>
+            <div class="btn-container">
+              <button name="submit" class="btn btn-submit" style="display: block; margin: 0 auto;">Submit</button>
+            </div>
+            <a class="text-light" id="login_button" onclick="showLogin()" href="#login-form">already a member? Login</a>
+          </form>
         </div>
+      </div>
     </div>
-    </div>
-    
+
     <div id="login-form">
-    <div class="form w-100  d-flex justify-content-center align-items-center" >
+      <div class="form w-100 d-flex justify-content-center align-items-center">
         <div class="form-container">
-            <h2>Login</h2>
-            <form action="DataBase/logAction.php" method="POST">
-                <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Email address" required name="login_email"/>
-                </div>
-                <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Password" required name="login_password"/>
-                </div>
-                <div class="btn-container">
-                    <button name="submit" class="btn btn-submit" style="display: block; margin: 0 auto;">Submit</button>
-                </div>
-                <a class="text-light" id="sign_button" onclick="showSignUp()" href="#sign_up">New member? Sign up</a>
-            </form>
+          <h2>Login</h2>
+          <form action="DataBase/logAction.php" method="POST">
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email address" required name="login_email"/>
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" placeholder="Password" required name="login_password"/>
+            </div>
+            <div class="btn-container">
+              <button name="submit" class="btn btn-submit" style="display: block; margin: 0 auto;">Submit</button>
+            </div>
+            <a class="text-light" id="sign_button" onclick="showSignUp()" href="#sign_up">New member? Sign up</a>
+          </form>
         </div>
+      </div>
     </div>
-    </div>`
-
-
     <script>
         var password = document.getElementById("password");
         var confirm_password = document.getElementById("confirm_password");

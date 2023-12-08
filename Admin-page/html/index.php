@@ -395,7 +395,7 @@ include('Database/config.php');
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title mb-0"> Cars Information/Status List</h5>
+                  <h5 class="card-title mb-0"> Cars Information & Status List</h5>
                 </div>
               </div>
 
@@ -432,6 +432,7 @@ include('Database/config.php');
                           $res = mysqli_query($con, $sql);
                           while( $row = mysqli_fetch_array($res)){
                         ?>
+                      
                         <tr>
                           <td><?php echo $row['car_id'] ?></td>
                           <td><?php echo $row['last_service_date'] ?></td>
